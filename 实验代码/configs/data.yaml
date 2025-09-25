@@ -1,0 +1,31 @@
+# 数据与预处理配置
+sample_rate: 44100
+segment_seconds: 30
+latent_rate: 137.8125  # 44.1kHz / 320 (R_VAE)
+latent_channels: 8
+latent_stride: 320
+train_datasets:
+  maestro:
+    manifest: data/manifests/maestro_v3.json
+    split: train
+  slakh:
+    manifest: data/manifests/slakh2100.json
+    split: train
+val_datasets:
+  maestro:
+    manifest: data/manifests/maestro_v3.json
+    split: validation
+collate:
+  batch_size: 16
+  num_workers: 8
+  pin_memory: true
+  prefetch_factor: 4
+  persistent_workers: true
+srm:
+  render_hz: 137.8125
+  sigma_on: 0.0036
+  sigma_off: 0.0036
+  velocity_scale: 1.0
+cache:
+  enable: true
+  dir: cache/srm

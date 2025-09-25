@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hs-mad"
+version = "0.1.0"
+description = "Hierarchical Symbolic-Conditioned Music Audio Diffusion"
+readme = "README.md"
+authors = [{name = "HS-MAD Team"}]
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.3",
+  "torchaudio>=2.3",
+  "einops>=0.7.0",
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "librosa>=0.10.1",
+  "madmom>=0.16.1",
+  "soundfile>=0.12",
+  "tqdm>=4.66",
+  "pyyaml>=6.0.1",
+  "pydantic>=2.8",
+  "omegaconf>=2.3.0",
+  "accelerate>=0.33",
+  "huggingface_hub>=0.23",
+  "laion-clap>=1.1.5",
+  "essentia>=2.1b6",
+  "protobuf<5",
+  "pandas>=2.2",
+  "matplotlib>=3.8",
+  "webrtcvad>=2.0.10"
+]
+
+[project.optional-dependencies]
+tests = [
+  "pytest>=8.2",
+  "pytest-cov>=5.0",
+  "pytest-mock>=3.14"
+]
+
+dev = [
+  "black>=24.4",
+  "ruff>=0.4",
+  "isort>=5.13",
+  "pre-commit>=3.6"
+]
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "N", "UP", "B", "Q", "SIM"]
+ignore = ["E203", "E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

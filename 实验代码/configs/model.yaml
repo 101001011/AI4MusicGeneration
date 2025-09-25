@@ -1,0 +1,30 @@
+hse:
+  d_in: 384
+  d_event: 512
+  d_local: 1024
+  d_global: 1536
+  r1: 4
+  r2: 4
+  n_blocks: [6, 6, 6]
+  conformer:
+    dim: 512
+    ffn_mult: 4.0
+    num_heads: 8
+    conv_kernel: 31
+    dropout: 0.1
+    drop_path: 0.1
+unet:
+  base_channels: 512
+  mid_channels: 1024
+  bottleneck_channels: 1536
+  attention_heads:
+    event: 8
+    local: 8
+    global: 12
+  adaln_dim: 512
+  diffusion_embedding_dim: 256
+  scm_layers: ["high", "mid"]
+  zero_init: true
+style_encoder:
+  type: clap
+  embedding_dim: 512

@@ -1,0 +1,28 @@
+seed: 42
+precision: amp
+max_steps: 1000000
+log_every_n_steps: 100
+ema:
+  enable: true
+  decay: 0.9999
+optimizer:
+  name: adamw
+  lr: 1.0e-4
+  weight_decay: 0.01
+scheduler:
+  name: cosine
+  warmup_steps: 10000
+  min_lr: 1.0e-6
+batching:
+  global_batch_size: 128
+  grad_accum_steps: 1
+  clip_grad_norm: 1.0
+cfg_dropout:
+  structure: 0.1
+  style: 0.1
+checkpoint:
+  dir: checkpoints
+  keep_last_k: 5
+logging:
+  backend: tensorboard
+  project: hs-mad

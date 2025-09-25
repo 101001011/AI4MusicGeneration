@@ -1,0 +1,29 @@
+metrics:
+  fad:
+    enable: true
+    batch_size: 32
+    stats_path: data/fad/stats.npz
+  mushra:
+    enable: true
+    panel_size: 15
+    interface: eval/mushra_template.html
+  note_f1:
+    enable: true
+    tolerance_ms: 50
+  tae:
+    enable: true
+  odd:
+    enable: true
+  bac:
+    enable: true
+  clap:
+    enable: true
+baselines:
+  global_flat: checkpoints/baselines/global_flat.ckpt
+  autoregressive: checkpoints/baselines/ar.ckpt
+  dense:
+    latent: checkpoints/baselines/dense.ckpt
+ablation:
+  scm_only: checkpoints/ablations/scm_only.ckpt
+  mrci_only: checkpoints/ablations/mrci_only.ckpt
+  full: checkpoints/model.ckpt

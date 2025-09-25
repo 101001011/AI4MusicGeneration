@@ -1,0 +1,9 @@
+diffusion_steps: 1000
+sampling_schedule: ddim
+cfg_weights:
+  structure: 3.0
+  style: 1.5
+seed: 1234
+chunk_seconds: 30
+save_dir: outputs
+precision: fp16
